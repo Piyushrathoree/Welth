@@ -13,8 +13,8 @@ const TestimonialsSection = () => {
             Loved by users everywhere
           </h2>
           <p className="text-slate-600 dark:text-neutral-400 max-w-2xl mx-auto">
-            Don't just take our word for it. Here is what our community has to
-            say about their journey to financial freedom.
+            Don&apos;t just take our word for it. Here is what our community has
+            to say about their journey to financial freedom.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

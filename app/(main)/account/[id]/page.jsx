@@ -5,7 +5,6 @@ import { ModernTransactionTable } from "../_components/modern-transaction-table"
 import { notFound } from "next/navigation";
 import { ModernAccountChart } from "../_components/modern-account-chart";
 import Link from "next/link";
-import { ArrowBigLeft } from "lucide-react";
 import { ArrowLeft } from "lucide-react";
 
 export default async function AccountPage({ params }) {
@@ -23,7 +22,10 @@ export default async function AccountPage({ params }) {
         href="/dashboard"
         className="relative inline-flex items-center justify-center gap-2  p-3 text-sm font-semibold transition-all duration-300 rounded-full  active:scale-95 dark:bg-neutral-700 dark:hover:bg-neutral-800 text-black dark:text-white shadow-inner bg-[#fafafa] hover:bg-[#f5f5f5]"
       >
-        <span className="hidden lg:inline "> <ArrowLeft/> </span>
+        <span className="hidden lg:inline ">
+          {" "}
+          <ArrowLeft />{" "}
+        </span>
       </Link>
       <div className="flex gap-4 items-end justify-between">
         <div>

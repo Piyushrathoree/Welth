@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { Wallet, Sun, Moon, Menu, X } from "lucide-react";
+import { Wallet, Menu, X } from "lucide-react";
 import Button from "@/components/landing/button";
 import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
 

@@ -19,7 +19,7 @@ const HowItWorksSection = () => {
               From chaos to clarity <br /> in minutes.
             </h2>
             <p className="text-slate-600 dark:text-neutral-400 text-lg mb-12">
-              We've streamlined the entire process so you can stop worrying
+              We&apos;ve streamlined the entire process so you can stop worrying
               about setup and start focusing on your future.
             </p>
 

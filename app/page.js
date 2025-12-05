@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
-
+import React from "react";
 
 import HeroSection from "@/components/landing/hero-section";
 import SocialProof from "@/components/landing/social-proof";
@@ -12,10 +11,8 @@ import CtaSection from "@/components/landing/cta-section";
 import Footer from "@/components/landing/footer";
 
 const LandingPage = () => {
-
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 text-slate-900 dark:text-white transition-colors duration-300 font-sans overflow-x-hidden">
-    
       <HeroSection />
       <SocialProof />
       <FeaturesSection />

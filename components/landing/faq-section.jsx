@@ -13,7 +13,7 @@ const FaqSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-slate-600 dark:text-neutral-400">
-            Got questions? We've got answers.
+            Got questions? We&apos;ve got answers.
           </p>
         </div>
 
