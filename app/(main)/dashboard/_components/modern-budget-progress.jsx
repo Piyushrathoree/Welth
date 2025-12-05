@@ -136,7 +136,7 @@ export function ModernBudgetProgress({ initialBudget, currentExpenses }) {
             Spent
           </span>
           <span className={`font-bold text-lg ${textColor}`}>
-            ${currentExpenses?.toFixed(2)}
+            ₹{currentExpenses?.toFixed(2)}
           </span>
         </div>
         <div className="flex flex-col items-end">
@@ -144,7 +144,7 @@ export function ModernBudgetProgress({ initialBudget, currentExpenses }) {
             Remaining
           </span>
           <span className="font-bold text-lg text-slate-700 dark:text-neutral-300">
-            $
+            ₹
             {initialBudget
               ? (initialBudget.amount - currentExpenses).toFixed(2)
               : "0.00"}

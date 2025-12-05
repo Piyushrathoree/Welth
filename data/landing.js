@@ -20,7 +20,7 @@ export const statsData = [
     label: "Active Users",
   },
   {
-    value: "$2B+",
+    value: "₹2B+",
     label: "Transactions Tracked",
   },
   {
@@ -50,22 +50,26 @@ export const featuresData = [
   {
     icon: <PieChart className="h-8 w-8 text-neutral-600" />,
     title: "Intelligent Budgeting",
-    description: "Create adaptive budgets that learn from your spending patterns and lifestyle.",
+    description:
+      "Create adaptive budgets that learn from your spending patterns and lifestyle.",
   },
   {
     icon: <CreditCard className="h-8 w-8 text-neutral-600" />,
     title: "Multi-Account Management",
-    description: "Seamlessly manage multiple bank accounts, credit cards, and investment portfolios.",
+    description:
+      "Seamlessly manage multiple bank accounts, credit cards, and investment portfolios.",
   },
   {
     icon: <Globe className="h-8 w-8 text-neutral-600" />,
     title: "Global Currency Support",
-    description: "Track finances across multiple currencies with real-time exchange rates.",
+    description:
+      "Track finances across multiple currencies with real-time exchange rates.",
   },
   {
     icon: <TrendingUp className="h-8 w-8 text-neutral-600" />,
     title: "Predictive Analytics",
-    description: "Forecast future expenses and income with advanced predictive modeling.",
+    description:
+      "Forecast future expenses and income with advanced predictive modeling.",
   },
 ];
 

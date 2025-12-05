@@ -1,8 +1,8 @@
 import { getUserAccounts } from "@/actions/dashboard";
 import { getDashboardData } from "@/actions/dashboard";
 import { getCurrentBudget } from "@/actions/budget";
-import { CreateAccountDrawer } from "@/components/create-account-drawer";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 import { ModernBudgetProgress } from "./_components/modern-budget-progress";
 import { ModernDashboardOverview } from "./_components/modern-transaction-overview";
 import { ModernAccountCard } from "./_components/modern-account-card";
@@ -37,7 +37,7 @@ export default async function DashboardPage() {
 
       {/* Accounts Grid */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <CreateAccountDrawer>
+        <Link href="/account/create">
           <div className="group relative overflow-hidden rounded-2xl p-[1px] h-full cursor-pointer">
             <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-neutral-800 dark:to-neutral-900 opacity-100 transition-opacity" />
             <div className="relative h-full bg-white dark:bg-neutral-950 rounded-2xl flex flex-col items-center justify-center p-6 border-2 border-dashed border-slate-200 dark:border-neutral-800 group-hover:border-blue-500/50 transition-colors">
@@ -52,7 +52,7 @@ export default async function DashboardPage() {
               </p>
             </div>
           </div>
-        </CreateAccountDrawer>
+        </Link>
         {accounts.length > 0 &&
           accounts?.map((account) => (
             <ModernAccountCard key={account.id} account={account} />

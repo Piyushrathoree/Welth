@@ -90,7 +90,7 @@ export function ModernDashboardOverview({ accounts, transactions }) {
             value={selectedAccountId}
             onValueChange={setSelectedAccountId}
           >
-            <SelectTrigger className="w-[140px] h-9 rounded-full bg-slate-50 dark:bg-neutral-800 border-none focus:ring-1 focus:ring-blue-500">
+            <SelectTrigger className="w-[140px] h-9 rounded-lg bg-slate-50 dark:bg-neutral-800 border border-neutral-700 ">
               <SelectValue placeholder="Select Account" />
             </SelectTrigger>
             <SelectContent>
@@ -145,7 +145,7 @@ export function ModernDashboardOverview({ accounts, transactions }) {
                     boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                   }}
                   itemStyle={{ color: "#1e293b" }}
-                  formatter={(value) => `$${value.toFixed(2)}`}
+                  formatter={(value) => `₹${value.toFixed(2)}`}
                 />
                 <Legend
                   layout="horizontal"
@@ -217,7 +217,7 @@ export function ModernDashboardOverview({ accounts, transactions }) {
                       : "text-green-600 dark:text-green-400"
                   )}
                 >
-                  {transaction.type === "EXPENSE" ? "-" : "+"}$
+                  {transaction.type === "EXPENSE" ? "-" : "+"}₹
                   {transaction.amount.toFixed(2)}
                 </div>
               </div>

@@ -24,7 +24,7 @@ const TestimonialsSection = () => {
             role="Freelance Designer"
           />
           <TestimonialCard
-            quote="The AI insights are spooky accurate. It predicted a budget overrun before it happened and saved me $200."
+            quote="The AI insights are spooky accurate. It predicted a budget overrun before it happened and saved me ₹200."
             author="Michael Chen"
             role="Software Engineer"
           />

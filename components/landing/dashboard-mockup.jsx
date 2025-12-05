@@ -72,7 +72,7 @@ const DashboardMockup = () => (
                 Net Profit
               </p>
               <p className="font-bold text-slate-900 dark:text-white">
-                +$1,240.50
+                +₹1,240.50
               </p>
             </div>
           </div>

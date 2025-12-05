@@ -34,8 +34,8 @@ export function ModernAccountChart({ transactions }) {
     const range = DATE_RANGES[dateRange];
     const now = new Date();
     const startDate = range.days
-      ? startOfDay(subDays(now, range.days))
-      : startOfDay(new Date(0));
+      ? startOfDay(new Date(0))
+      : startOfDay(subDays(now, range.days));
 
     // Filter transactions within date range
     const filtered = transactions.filter(
@@ -99,7 +99,7 @@ export function ModernAccountChart({ transactions }) {
             Total Income
           </p>
           <p className="text-lg font-bold text-green-500">
-            ${totals.income.toFixed(2)}
+            ₹{totals.income.toFixed(2)}
           </p>
         </div>
         <div className="text-center">
@@ -107,7 +107,7 @@ export function ModernAccountChart({ transactions }) {
             Total Expenses
           </p>
           <p className="text-lg font-bold text-red-500">
-            ${totals.expense.toFixed(2)}
+            ₹{totals.expense.toFixed(2)}
           </p>
         </div>
         <div className="text-center">
@@ -121,7 +121,7 @@ export function ModernAccountChart({ transactions }) {
                 : "text-red-500"
             }`}
           >
-            ${(totals.income - totals.expense).toFixed(2)}
+            ₹{(totals.income - totals.expense).toFixed(2)}
           </p>
         </div>
       </div>
@@ -144,7 +144,7 @@ export function ModernAccountChart({ transactions }) {
             </defs>
             <CartesianGrid
               strokeDasharray="3 3"
-              vertical={false}
+              vertical={true}
               stroke="#e2e8f0"
               className="dark:stroke-neutral-800"
             />
@@ -159,7 +159,7 @@ export function ModernAccountChart({ transactions }) {
               axisLine={false}
               tickLine={false}
               tick={{ fill: "#94a3b8", fontSize: 12 }}
-              tickFormatter={(value) => `$${value}`}
+              tickFormatter={(value) => `₹${value}`}
             />
             <Tooltip
               contentStyle={{
@@ -170,7 +170,7 @@ export function ModernAccountChart({ transactions }) {
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
               }}
               itemStyle={{ color: "#1e293b" }}
-              formatter={(value) => [`$${value.toFixed(2)}`, undefined]}
+              formatter={(value) => [`₹${value.toFixed(2)}`, undefined]}
             />
             <Area
               type="monotone"

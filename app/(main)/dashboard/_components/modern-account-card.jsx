@@ -79,7 +79,7 @@ export function ModernAccountCard({ account }) {
             <p className="text-sm text-slate-400 mb-2">Current Balance</p>
             <div className="flex items-baseline gap-2">
               <span className="text-3xl font-bold text-white">
-                ${parseFloat(balance).toFixed(2)}
+                ₹{parseFloat(balance).toFixed(2)}
               </span>
               <div className="flex items-center text-xs text-green-400">
                 <ArrowUpRight className="mr-1 h-3 w-3" />

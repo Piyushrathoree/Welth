@@ -65,7 +65,7 @@ const HowItWorksSection = () => {
                 </div>
                 <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-6 rounded-2xl text-white shadow-lg">
                   <p className="text-sm opacity-80">Total Balance</p>
-                  <p className="text-2xl font-bold">$24,500.00</p>
+                  <p className="text-2xl font-bold">₹24,500.00</p>
                 </div>
                 <div className="space-y-2">
                   {[1, 2, 3, 4].map((i) => (

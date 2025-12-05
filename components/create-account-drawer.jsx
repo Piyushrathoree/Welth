@@ -92,6 +92,7 @@ export function CreateAccountDrawer({ children }) {
                 id="name"
                 placeholder="e.g., Main Checking"
                 {...register("name")}
+                className="h-11 rounded-xl bg-slate-50 dark:bg-neutral-800 border-slate-200 dark:border-neutral-700"
               />
               {errors.name && (
                 <p className="text-sm text-red-500">{errors.name.message}</p>
@@ -109,7 +110,10 @@ export function CreateAccountDrawer({ children }) {
                 onValueChange={(value) => setValue("type", value)}
                 defaultValue={watch("type")}
               >
-                <SelectTrigger id="type">
+                <SelectTrigger
+                  id="type"
+                  className="h-11 rounded-xl bg-slate-50 dark:bg-neutral-800 border-slate-200 dark:border-neutral-700"
+                >
                   <SelectValue placeholder="Select type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -129,19 +133,25 @@ export function CreateAccountDrawer({ children }) {
               >
                 Initial Balance
               </label>
-              <Input
-                id="balance"
-                type="number"
-                step="0.01"
-                placeholder="0.00"
-                {...register("balance")}
-              />
+              <div className="relative">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                  ₹
+                </span>
+                <Input
+                  id="balance"
+                  type="number"
+                  step="0.01"
+                  placeholder="0.00"
+                  {...register("balance")}
+                  className="pl-8 h-11 rounded-xl bg-slate-50 dark:bg-neutral-800 border-slate-200 dark:border-neutral-700"
+                />
+              </div>
               {errors.balance && (
                 <p className="text-sm text-red-500">{errors.balance.message}</p>
               )}
             </div>
 
-            <div className="flex items-center justify-between rounded-lg border p-3">
+            <div className="flex items-center justify-between rounded-xl border border-slate-200 dark:border-neutral-700 bg-slate-50 dark:bg-neutral-800 p-4">
               <div className="space-y-0.5">
                 <label
                   htmlFor="isDefault"
@@ -162,13 +172,17 @@ export function CreateAccountDrawer({ children }) {
 
             <div className="flex gap-4 pt-4">
               <DrawerClose asChild>
-                <Button type="button" variant="outline" className="flex-1">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="flex-1 h-11 rounded-xl border-slate-200 dark:border-neutral-700 hover:bg-slate-50 dark:hover:bg-neutral-800"
+                >
                   Cancel
                 </Button>
               </DrawerClose>
               <Button
                 type="submit"
-                className="flex-1"
+                className="flex-1 h-11 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg shadow-blue-500/20 transition-all hover:scale-[1.02]"
                 disabled={createAccountLoading}
               >
                 {createAccountLoading ? (
