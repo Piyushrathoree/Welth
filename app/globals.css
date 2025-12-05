@@ -77,7 +77,7 @@ html {
 
 @layer utilities {
   .gradient {
-    @apply bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900;
+    @apply bg-gradient-to-br from-neutral-800 via-neutral-800 to-neutral-900;
   }
   .gradient-title {
     @apply gradient font-extrabold tracking-tighter pr-2 pb-2 text-transparent bg-clip-text;
@@ -171,4 +171,9 @@ html {
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }

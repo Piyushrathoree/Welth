@@ -1,12 +1,11 @@
 import { getUserAccounts } from "@/actions/dashboard";
 import { getDashboardData } from "@/actions/dashboard";
 import { getCurrentBudget } from "@/actions/budget";
-import { AccountCard } from "./_components/account-card";
 import { CreateAccountDrawer } from "@/components/create-account-drawer";
-import { BudgetProgress } from "./_components/budget-progress";
-import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from "lucide-react";
-import { DashboardOverview } from "./_components/transaction-overview";
+import { ModernBudgetProgress } from "./_components/modern-budget-progress";
+import { ModernDashboardOverview } from "./_components/modern-transaction-overview";
+import { ModernAccountCard } from "./_components/modern-account-card";
 
 export default async function DashboardPage() {
   const [accounts, transactions] = await Promise.all([
@@ -25,30 +24,38 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-8">
       {/* Budget Progress */}
-      <BudgetProgress
+      <ModernBudgetProgress
         initialBudget={budgetData?.budget}
         currentExpenses={budgetData?.currentExpenses || 0}
       />
 
       {/* Dashboard Overview */}
-      <DashboardOverview
+      <ModernDashboardOverview
         accounts={accounts}
         transactions={transactions || []}
       />
 
       {/* Accounts Grid */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <CreateAccountDrawer>
-          <Card className="hover:shadow-md transition-shadow cursor-pointer border-dashed">
-            <CardContent className="flex flex-col items-center justify-center text-muted-foreground h-full pt-5">
-              <Plus className="h-10 w-10 mb-2" />
-              <p className="text-sm font-medium">Add New Account</p>
-            </CardContent>
-          </Card>
+          <div className="group relative overflow-hidden rounded-2xl p-[1px] h-full cursor-pointer">
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-100 dark:from-neutral-800 dark:to-neutral-900 opacity-100 transition-opacity" />
+            <div className="relative h-full bg-white dark:bg-neutral-950 rounded-2xl flex flex-col items-center justify-center p-6 border-2 border-dashed border-slate-200 dark:border-neutral-800 group-hover:border-blue-500/50 transition-colors">
+              <div className="w-12 h-12 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                <Plus className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+              </div>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">
+                Add New Account
+              </p>
+              <p className="text-xs text-slate-500 dark:text-neutral-400 mt-1">
+                Connect a bank or card
+              </p>
+            </div>
+          </div>
         </CreateAccountDrawer>
         {accounts.length > 0 &&
           accounts?.map((account) => (
-            <AccountCard key={account.id} account={account} />
+            <ModernAccountCard key={account.id} account={account} />
           ))}
       </div>
     </div>

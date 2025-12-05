@@ -1,9 +1,12 @@
 import { Suspense } from "react";
 import { getAccountWithTransactions } from "@/actions/account";
 import { BarLoader } from "react-spinners";
-import { TransactionTable } from "../_components/transaction-table";
+import { ModernTransactionTable } from "../_components/modern-transaction-table";
 import { notFound } from "next/navigation";
-import { AccountChart } from "../_components/account-chart";
+import { ModernAccountChart } from "../_components/modern-account-chart";
+import Link from "next/link";
+import { ArrowBigLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export default async function AccountPage({ params }) {
   const accountData = await getAccountWithTransactions(params.id);
@@ -15,7 +18,13 @@ export default async function AccountPage({ params }) {
   const { transactions, ...account } = accountData;
 
   return (
-    <div className="space-y-8 px-5">
+    <div className="space-y-8">
+      <Link
+        href="/dashboard"
+        className="relative inline-flex items-center justify-center gap-2  p-3 text-sm font-semibold transition-all duration-300 rounded-full  active:scale-95 dark:bg-neutral-700 dark:hover:bg-neutral-800 text-black dark:text-white shadow-inner bg-[#fafafa] hover:bg-[#f5f5f5]"
+      >
+        <span className="hidden lg:inline "> <ArrowLeft/> </span>
+      </Link>
       <div className="flex gap-4 items-end justify-between">
         <div>
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight gradient-title capitalize">
@@ -41,14 +50,14 @@ export default async function AccountPage({ params }) {
       <Suspense
         fallback={<BarLoader className="mt-4" width={"100%"} color="#9333ea" />}
       >
-        <AccountChart transactions={transactions} />
+        <ModernAccountChart transactions={transactions} />
       </Suspense>
 
       {/* Transactions Table */}
       <Suspense
         fallback={<BarLoader className="mt-4" width={"100%"} color="#9333ea" />}
       >
-        <TransactionTable transactions={transactions} />
+        <ModernTransactionTable transactions={transactions} />
       </Suspense>
     </div>
   );
