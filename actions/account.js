@@ -143,7 +143,52 @@ export async function updateDefaultAccount(accountId) {
     });
 
     revalidatePath("/dashboard");
-    return { success: true, data: serializeTransaction(account) };
+    return { success: true, data: serializeDecimal(account) };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+}
+
+export async function deleteAccount(accountId) {
+  try {
+    const { userId } = await auth();
+    if (!userId) throw new Error("Unauthorized");
+
+    const user = await db.user.findUnique({
+      where: { clerkUserId: userId },
+    });
+
+    if (!user) throw new Error("User not found");
+
+    const account = await db.account.findUnique({
+      where: {
+        id: accountId,
+        userId: user.id,
+      },
+      include: {
+        _count: {
+          select: { transactions: true },
+        },
+      },
+    });
+
+    if (!account) throw new Error("Account not found");
+
+    // Delete account and all its transactions
+    await db.$transaction(async (tx) => {
+      // Delete transactions first
+      await tx.transaction.deleteMany({
+        where: { accountId: accountId },
+      });
+
+      // Delete account
+      await tx.account.delete({
+        where: { id: accountId },
+      });
+    });
+
+    revalidatePath("/dashboard");
+    return { success: true };
   } catch (error) {
     return { success: false, error: error.message };
   }
