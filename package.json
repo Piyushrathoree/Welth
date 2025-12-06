@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@arcjet/next": "^1.0.0-alpha.34",
-    "@clerk/nextjs": "^6.6.0",
+    "@clerk/nextjs": "^6.36.0",
     "@google/generative-ai": "^0.21.0",
     "@hookform/resolvers": "^3.9.1",
     "@prisma/client": "^5.22.0",
@@ -32,11 +32,11 @@
     "date-fns": "^4.1.0",
     "inngest": "^3.27.4",
     "lucide-react": "^0.462.0",
-    "next": "16.0.3",
+    "next": "16.0.7",
     "next-themes": "^0.4.3",
-    "react": "^19.0.0-rc-66855b96-20241106",
+    "react": "^19.2.1",
     "react-day-picker": "^8.10.1",
-    "react-dom": "^19.0.0-rc-66855b96-20241106",
+    "react-dom": "^19.2.1",
     "react-hook-form": "^7.53.2",
     "react-spinners": "^0.14.1",
     "recharts": "^2.14.1",
@@ -52,7 +52,7 @@
     "eslint-config-next": "15.0.3",
     "postcss": "^8",
     "prisma": "^5.22.0",
-    "react-email": "3.0.3",
+    "react-email": "5.0.5",
     "tailwindcss": "^3.4.1"
   }
 }
