@@ -1,6 +1,7 @@
 import { getUserAccounts } from "@/actions/dashboard";
 import { getDashboardData } from "@/actions/dashboard";
 import { getCurrentBudget } from "@/actions/budget";
+import { seedTransactions } from "@/actions/seed";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { ModernBudgetProgress } from "./_components/modern-budget-progress";
@@ -57,6 +58,18 @@ export default async function DashboardPage() {
           accounts?.map((account) => (
             <ModernAccountCard key={account.id} account={account} />
           ))}
+      </div>
+
+      {/* Seed Data Button */}
+      <div className="flex justify-center pt-8">
+        <form action={seedTransactions}>
+          <button
+            type="submit"
+            className="px-4 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors text-sm font-medium"
+          >
+            Seed Random Data
+          </button>
+        </form>
       </div>
     </div>
   );

@@ -2,29 +2,28 @@
 
 import { db } from "@/lib/prisma";
 import { subDays } from "date-fns";
-
-const ACCOUNT_ID = "account-id";
-const USER_ID = "user-id";
+import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 
 // Categories with their typical amount ranges
 const CATEGORIES = {
   INCOME: [
-    { name: "salary", range: [5000, 8000] },
-    { name: "freelance", range: [1000, 3000] },
-    { name: "investments", range: [500, 2000] },
-    { name: "other-income", range: [100, 1000] },
+    { name: "salary", range: [50000, 80000] },
+    { name: "freelance", range: [10000, 30000] },
+    { name: "investments", range: [5000, 20000] },
+    { name: "other-income", range: [1000, 10000] },
   ],
   EXPENSE: [
-    { name: "housing", range: [1000, 2000] },
-    { name: "transportation", range: [100, 500] },
-    { name: "groceries", range: [200, 600] },
-    { name: "utilities", range: [100, 300] },
-    { name: "entertainment", range: [50, 200] },
+    { name: "housing", range: [10000, 20000] },
+    { name: "transportation", range: [1000, 5000] },
+    { name: "groceries", range: [2000, 6000] },
+    { name: "utilities", range: [1000, 3000] },
+    { name: "entertainment", range: [50, 2000] },
     { name: "food", range: [50, 150] },
-    { name: "shopping", range: [100, 500] },
-    { name: "healthcare", range: [100, 1000] },
-    { name: "education", range: [200, 1000] },
-    { name: "travel", range: [500, 2000] },
+    { name: "shopping", range: [1000, 5000] },
+    { name: "healthcare", range: [1000, 10000] },
+    { name: "education", range: [2000, 10000] },
+    { name: "travel", range: [5000, 20000] },
   ],
 };
 
@@ -43,9 +42,44 @@ function getRandomCategory(type) {
 
 export async function seedTransactions() {
   try {
+    const { userId } = await auth();
+    if (!userId) {
+      throw new Error("Unauthorized");
+    }
+
+    const user = await db.user.findUnique({
+      where: { clerkUserId: userId },
+    });
+
+    if (!user) {
+      throw new Error("User not found");
+    }
+
+    let account = await db.account.findFirst({
+      where: { userId: user.id, isDefault: true },
+    });
+
+    if (!account) {
+      account = await db.account.findFirst({
+        where: { userId: user.id },
+      });
+    }
+
+    if (!account) {
+      account = await db.account.create({
+        data: {
+          name: "Default Account",
+          type: "CURRENT",
+          balance: 0,
+          isDefault: true,
+          userId: user.id,
+        },
+      });
+    }
+
     // Generate 90 days of transactions
     const transactions = [];
-    let totalBalance = 0;
+    let totalBalance = account.balance.toNumber();
 
     for (let i = 90; i >= 0; i--) {
       const date = subDays(new Date(), i);
@@ -68,8 +102,8 @@ export async function seedTransactions() {
           date,
           category,
           status: "COMPLETED",
-          userId: USER_ID,
-          accountId: ACCOUNT_ID,
+          userId: user.id,
+          accountId: account.id,
           createdAt: date,
           updatedAt: date,
         };
@@ -83,7 +117,7 @@ export async function seedTransactions() {
     await db.$transaction(async (tx) => {
       // Clear existing transactions
       await tx.transaction.deleteMany({
-        where: { accountId: ACCOUNT_ID },
+        where: { accountId: account.id },
       });
 
       // Insert new transactions
@@ -93,17 +127,17 @@ export async function seedTransactions() {
 
       // Update account balance
       await tx.account.update({
-        where: { id: ACCOUNT_ID },
+        where: { id: account.id },
         data: { balance: totalBalance },
       });
     });
 
-    return {
-      success: true,
-      message: `Created ${transactions.length} transactions`,
-    };
+    revalidatePath("/dashboard");
+    revalidatePath(`/account/${account.id}`);
+
+    return { success: true, message: "Data seeded successfully" };
   } catch (error) {
-    console.error("Error seeding transactions:", error);
+    console.error("Error seeding data:", error);
     return { success: false, error: error.message };
   }
 }
