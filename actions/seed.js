@@ -77,11 +77,11 @@ export async function seedTransactions() {
       });
     }
 
-    // Generate 90 days of transactions
+    // Generate 10 days of transactions
     const transactions = [];
     let totalBalance = account.balance.toNumber();
 
-    for (let i = 90; i >= 0; i--) {
+    for (let i = 10; i >= 0; i--) {
       const date = subDays(new Date(), i);
 
       // Generate 1-3 transactions per day
