@@ -1,6 +1,10 @@
 # An AI - finance management application which allow users to manage their finances
 
-<img width="1470" alt="Screenshot 2024-12-10 at 9 45 45 AM" src="https://github.com/user-attachments/assets/1bc50b85-b421-4122-8ba4-ae68b2b61432">
+<video width="1370" controls>
+    <source src="https://github.com/Piyushrathoree/Welth/raw/main/public/video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
 
 ### Make sure to create a `.env` file with following variables -
 
