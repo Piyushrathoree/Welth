@@ -12,7 +12,7 @@ const SocialProof = () => {
             (brand) => (
               <span
                 key={brand}
-                className="text-xl font-bold font-serif text-slate-400 dark:text-neutral-500 cursor-default hover:text-slate-600 dark:hover:text-neutral-300 transition-colors"
+                className="text-xl font-bold font-sans text-slate-400 dark:text-neutral-500 cursor-default hover:text-slate-600 dark:hover:text-neutral-300 transition-colors"
               >
                 {brand}
               </span>

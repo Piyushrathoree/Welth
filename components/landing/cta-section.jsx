@@ -7,7 +7,7 @@ const CtaSection = () => {
       <div className="max-w-5xl mx-auto bg-blue-600 rounded-3xl p-8 md:p-16 text-center text-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="relative z-10">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-sans font-bold mb-6">
             Ready to take control?
           </h2>
           <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">

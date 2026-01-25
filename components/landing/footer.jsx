@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Wallet className="text-white w-4 h-4" />
             </div>
-            <span className="font-serif font-bold text-lg text-slate-900 dark:text-white">
+            <span className="font-sans font-bold text-lg text-slate-900 dark:text-white">
               Welth
             </span>
           </div>

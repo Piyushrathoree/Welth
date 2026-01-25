@@ -20,7 +20,7 @@ const TimelineItem = ({ step, title, desc, icon: Icon, isLast }) => (
       <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1 block">
         Step {step}
       </span>
-      <h3 className="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2">
+      <h3 className="text-xl font-bold font-sans text-slate-900 dark:text-white mb-2">
         {title}
       </h3>
       <p className="text-slate-600 dark:text-neutral-400 leading-relaxed max-w-md">

@@ -17,7 +17,7 @@ const HeroSection = () => {
           <Star size={12} fill="currentColor" /> New v2.0 is live
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tight mb-6 animate-fade-in-up animation-delay-200">
+        <h1 className="text-5xl md:text-7xl font-sans font-bold tracking-tight mb-6 animate-fade-in-up animation-delay-200">
           Master your money <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
             with zero stress.

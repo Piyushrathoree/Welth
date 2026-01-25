@@ -15,7 +15,7 @@ const HowItWorksSection = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-neutral-800 border border-blue-200 dark:border-neutral-700 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
               <Zap size={12} fill="currentColor" /> Easy Setup
             </div>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-slate-900 dark:text-white leading-tight">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold mb-6 text-slate-900 dark:text-white leading-tight">
               From chaos to clarity <br /> in minutes.
             </h2>
             <p className="text-slate-600 dark:text-neutral-400 text-lg mb-12">

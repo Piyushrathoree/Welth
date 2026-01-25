@@ -12,7 +12,7 @@ const FeatureCard = ({ icon: Icon, title, desc }) => (
           size={24}
         />
       </div>
-      <h3 className="text-xl font-bold font-serif text-slate-900 dark:text-white mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+      <h3 className="text-xl font-bold font-sans text-slate-900 dark:text-white mb-2 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
         {title}
       </h3>
       <p className="text-slate-500 dark:text-neutral-400 leading-relaxed group-hover:text-slate-600 dark:group-hover:text-neutral-300 transition-colors">

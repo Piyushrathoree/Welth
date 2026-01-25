@@ -9,7 +9,7 @@ const TestimonialsSection = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-slate-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-sans font-bold mb-4 text-slate-900 dark:text-white">
             Loved by users everywhere
           </h2>
           <p className="text-slate-600 dark:text-neutral-400 max-w-2xl mx-auto">
