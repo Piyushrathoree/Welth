@@ -30,7 +30,7 @@ const Navbar = () => {
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
               <Wallet className="text-white w-6 h-6" />
             </div>
-            <span className="text-2xl font-sans font-black tracking-tight text-neutral-100 ">
+            <span className="text-2xl font-sans font-black tracking-tight dark:text-neutral-100 text-neutral-800 ">
               Welth
             </span>
           </Link>
