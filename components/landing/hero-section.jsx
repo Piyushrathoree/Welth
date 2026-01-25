@@ -14,7 +14,7 @@ const HeroSection = () => {
 
       <div className="max-w-7xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-neutral-800 border border-blue-200 dark:border-neutral-700 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-6 animate-fade-in-up">
-          <Star size={12} fill="currentColor" /> New v2.0 is live
+          <Star size={12} fill="currentColor" /> New v1.0 is live
         </div>
 
         <h1 className="text-5xl md:text-7xl font-sans font-bold tracking-tight mb-6 animate-fade-in-up animation-delay-200">
